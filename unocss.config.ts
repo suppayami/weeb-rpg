@@ -19,7 +19,7 @@ export default defineConfig({
 		presetTypography(),
 		presetWebFonts({
 			fonts: {
-				sans: 'PT Sans',
+				sans: 'Play',
 				serif: 'PT Serif',
 				mono: 'PT Mono',
 			},

@@ -1,5 +1,25 @@
 {
     "extends": [
         "@suppayami/vue"
-    ]
+    ],
+    "rules": {
+        "import/order": [
+			"error",
+			{
+				"newlines-between": "always",
+				"groups": ["builtin", "external", "internal", "type", ["parent", "sibling", "index"]],
+				"pathGroups": [
+					{
+						"pattern": "@/**",
+						"group": "internal"
+					}
+				],
+				"pathGroupsExcludedImportTypes": ["builtin"],
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
+			}
+		]
+    }
 }
