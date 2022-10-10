@@ -37,6 +37,7 @@ watchEffect(() => {
 
 		<form
 			flex="~ col items-center gap-2"
+			@submit.prevent="enterHandler"
 		>
 			<input
 				v-model="name"
@@ -52,7 +53,6 @@ watchEffect(() => {
 
 			<AppButton
 				type="submit"
-				@click="enterHandler"
 			>
 				Enter
 			</AppButton>
