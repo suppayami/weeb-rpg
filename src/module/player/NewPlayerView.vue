@@ -1,15 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
+import { useRouter } from 'vue-router'
 
 import AppButton from '@/components/AppButton.vue'
 import { usePlayerStore } from '@/module/player/player.store'
 
+const router = useRouter()
 const player = usePlayerStore()
 
 const name = ref('')
 const enterHandler = () => {
 	player.createNewPlayer({ name: name.value })
 }
+
+watchEffect(() => {
+	if (player.isSavedPlayer) {
+		router.replace('/')
+	}
+})
 </script>
 
 <template>
@@ -19,7 +27,6 @@ const enterHandler = () => {
 				Weeb RPG
 			</h1>
 			<h3>Welcome to Weeb World, please enter your name</h3>
-			<h5>Hello {{ player.name }}</h5>
 		</div>
 
 		<div class="flex flex-col gap-2 items-center">

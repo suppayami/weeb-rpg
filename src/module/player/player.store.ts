@@ -1,21 +1,29 @@
+import { useLocalStorage } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { ref } from 'vue'
-
-type PlayerState = 'new' | 'saved'
+import { computed } from 'vue'
 
 export const usePlayerStore = defineStore('player', () => {
-	const state = ref<PlayerState>('new')
-	const name = ref('')
+	const name = useLocalStorage('player/name', '')
+	const isSavedPlayer = computed(() => !!name.value)
 
 	function createNewPlayer(info: { name: string }) {
-		if (state.value !== 'new') {
+		if (name.value) {
 			throw new Error('Currently using a saved player, cannot create a new one.')
 		}
 		name.value = info.name
-		state.value = 'saved'
 	}
 
-	return { name, createNewPlayer }
+	function deletePlayer() {
+		name.value = ''
+	}
+
+	return {
+		name,
+		isSavedPlayer,
+
+		createNewPlayer,
+		deletePlayer,
+	}
 })
 
 if (import.meta.hot) {
