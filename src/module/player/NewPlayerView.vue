@@ -21,19 +21,32 @@ watchEffect(() => {
 </script>
 
 <template>
-	<div class="text-center gap-4 flex flex-col">
+	<div
+		text-center
+		flex="~ col gap-4"
+	>
 		<div>
-			<h1 class="font-bold text-xl">
+			<h1
+				font-bold
+				text-xl
+			>
 				Weeb RPG
 			</h1>
 			<h3>Welcome to Weeb World, please enter your name</h3>
 		</div>
 
-		<div class="flex flex-col gap-2 items-center">
+		<div
+			flex="~ col items-center gap-2"
+		>
 			<input
 				v-model="name"
 				type="text"
-				class="border p-2 rounded focus:ring focus:ring-lightBlue focus:outline-none w-full text-black"
+				border="~ rounded"
+				p-2
+				ring="focus:~ focus:blue-400 focus:2"
+				outline="none"
+				w-full
+				text-black
 				placeholder="Enter your name..."
 			>
 

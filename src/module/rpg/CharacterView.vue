@@ -20,8 +20,11 @@ const deleteCharacterHandler = () => {
 </script>
 
 <template>
-	<div class="text-center flex-col gap-2 flex">
-		<h1 class="font-bold">
+	<div
+		text-center
+		flex="~ col gap-2"
+	>
+		<h1 font-bold>
 			Welcome back, {{ player.name }}
 		</h1>
 

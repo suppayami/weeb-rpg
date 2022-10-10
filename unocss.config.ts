@@ -4,6 +4,7 @@ import {
 	presetTypography,
 	presetUno,
 	presetWebFonts,
+	presetAttributify,
 	transformerDirectives,
 	transformerVariantGroup,
 } from 'unocss'
@@ -17,6 +18,7 @@ export default defineConfig({
 			warn: true,
 		}),
 		presetTypography(),
+		presetAttributify(),
 		presetWebFonts({
 			fonts: {
 				sans: 'Play',
