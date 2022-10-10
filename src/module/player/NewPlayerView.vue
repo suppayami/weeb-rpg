@@ -35,7 +35,7 @@ watchEffect(() => {
 			<h3>Welcome to Weeb World, please enter your name</h3>
 		</div>
 
-		<div
+		<form
 			flex="~ col items-center gap-2"
 		>
 			<input
@@ -50,9 +50,12 @@ watchEffect(() => {
 				placeholder="Enter your name..."
 			>
 
-			<AppButton @click="enterHandler">
+			<AppButton
+				type="submit"
+				@click="enterHandler"
+			>
 				Enter
 			</AppButton>
-		</div>
+		</form>
 	</div>
 </template>
