@@ -4,9 +4,11 @@ import { useRouter } from 'vue-router'
 
 import AppButton from '@/components/AppButton.vue'
 import { usePlayerStore } from '@/module/player/player.store'
+import { useCharacterStore } from '@/module/rpg/character.store'
 
 const router = useRouter()
 const player = usePlayerStore()
+const character = useCharacterStore()
 
 watchEffect(() => {
 	if (!player.isSavedPlayer) {
@@ -27,6 +29,26 @@ const deleteCharacterHandler = () => {
 		<h1 font-bold>
 			Welcome back, {{ player.name }}
 		</h1>
+
+		<div>
+			<h3>Stats</h3>
+			<dl
+				text-left
+				border="~"
+				p-2
+				grid="~ cols-2"
+			>
+				<template
+					v-for="(val, key) in character.stats"
+					:key="key"
+				>
+					<dt>{{ key }}</dt>
+					<dd text-right>
+						{{ val }}
+					</dd>
+				</template>
+			</dl>
+		</div>
 
 		<div>
 			<AppButton @click="deleteCharacterHandler">
